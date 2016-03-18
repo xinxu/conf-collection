@@ -1,0 +1,106 @@
+set nocompatible
+"set rtp^=~/Dropbox/tassar/vim
+"set rtp^=~/Dropbox/tassar/vim/bundle/vim-pathogen
+set rtp^=~/.vim
+set rtp^=~/.vim/bundle/vim-pathogen
+execute pathogen#infect('~/Dropbox/tassar/vim/bundle/{}')
+
+" basic settings
+filetype plugin indent on
+set autochdir
+set wildmenu
+set autowrite
+set autoread
+set hidden
+set bs=2
+let mapleader = ','
+
+" backup settings
+set nobackup
+set nowritebackup
+set noswapfile
+
+" indent settings
+set autoindent
+set cindent
+set smartindent
+
+" ui settings
+set cursorline
+set guifont=Source\ Code\ Pro:h14
+set showmatch
+set list
+set listchars=tab:>-,trail:-
+set guioptions=agLRt
+set number
+if has("syntax")
+  syntax on
+endif
+let g:molokai_original = 1
+colors molokai
+set clipboard+=unnamed
+
+"tab settings
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+au FileType xml setl sw=2 sts=2
+
+"encoding
+set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
+
+"key mapping
+nmap <CR> o<ESC>
+nnoremap <silent> <Leader>bd :Bclose<CR>
+
+"auto-save
+let g:auto_save = 1
+
+"ctrlp
+let g:ctrlp_working_path_mode = 'ra'
+
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"neocomplete
+let g:neocomplete#enable_at_startup = 1
+
+"syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"vim-go
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:go_fmt_fail_silently = 1
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }

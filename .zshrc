@@ -1,0 +1,1 @@
+/Users/tassar/config/_zshrc ~/.zshrc

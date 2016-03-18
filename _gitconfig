@@ -1,0 +1,27 @@
+[color]
+    ui = true
+[push]
+    default = simple
+[user]
+    name = Xin Xu
+    email = xinxu0x@gmail.com
+[core]
+    excludesfile = /Users/xinxu/.gitignore_global
+[alias]
+    st = status
+    ci = commit -m
+    co = checkout
+    last = diff HEAD^ HEAD
+    amend = commit --amend
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+	unstage = reset HEAD
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
