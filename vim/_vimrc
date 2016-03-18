@@ -42,9 +42,9 @@ set clipboard+=unnamed
 
 "tab settings
 set expandtab
-set shiftwidth=2
-set softtabstop=2
-au FileType xml setl sw=2 sts=2
+set shiftwidth=4
+set softtabstop=4
+au FileType go setl ts=4 sts=4
 
 "encoding
 set encoding=utf-8
