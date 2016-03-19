@@ -53,6 +53,7 @@ set fileencodings=utf-8,chinese,latin-1
 "key mapping
 nmap <CR> o<ESC>
 nnoremap <silent> <Leader>bd :Bclose<CR>
+nmap <Leader>, <C-w>h
 
 "ctrlp
 let g:ctrlp_working_path_mode = 'ra'
@@ -62,7 +63,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -124,6 +124,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 "let g:go_fmt_command = \"goimports"
 let g:go_fmt_fail_silently = 1
-"let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 "let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
