@@ -63,8 +63,23 @@ set fileencodings=utf-8,chinese,latin-1
 nmap <CR> o<ESC>
 nnoremap <silent> <Leader>bd :Bclose<CR>
 nmap <Leader>, <C-w>h
-nmap <Leader>w :lne<CR>
-nmap <Leader>q :lp<CR>
+if has("gui_macvim")
+  function! MapBoth(keys, rhs)
+    execute 'nmap' a:keys a:rhs
+    execute 'imap' a:keys '<ESC>' . a:rhs
+  endfunction
+  " Switch to specific tab numbers with Command-number
+  call MapBoth('<D-1>', ':tabn 1 <CR>')
+  call MapBoth('<D-2>', ':tabn 2 <CR>')
+  call MapBoth('<D-3>', ':tabn 3 <CR>')
+  call MapBoth('<D-4>', ':tabn 4 <CR>')
+  call MapBoth('<D-5>', ':tabn 5 <CR>')
+  call MapBoth('<D-6>', ':tabn 6 <CR>')
+  call MapBoth('<D-7>', ':tabn 7 <CR>')
+  call MapBoth('<D-8>', ':tabn 8 <CR>')
+  call MapBoth('<D-9>', ':tabn 9 <CR>')
+  call MapBoth('<D-0>', ':tablast <CR>')
+endif
 
 "ctrlp
 let g:ctrlp_working_path_mode = 'ra'
@@ -78,7 +93,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "neocomplete
 set completeopt-=preview
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_ignore_case = 1
 "let g:neocomplete#enable_auto_close_preview = 1
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -110,9 +124,31 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_jump = 2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+function! <SID>LocationPrevious()
+  try
+    lprev
+  catch /^Vim\%((\a\+)\)\=:E553/
+    llast
+  endtry
+endfunction
+
+function! <SID>LocationNext()
+  try
+    lnext
+  catch /^Vim\%((\a\+)\)\=:E553/
+    lfirst
+  endtry
+endfunction
+
+nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPrevious()'<CR>
+nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
+nmap <silent> e[  <Plug>LocationPrevious
+nmap <silent> e]  <Plug>LocationNext
 
 "vim-go
 
