@@ -14,6 +14,11 @@ set bs=2
 set shell=/usr/local/bin/zsh
 let mapleader = ','
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+set diffopt+=iwhite
+if &diff
+    colorscheme sol-term
+endif
+au FilterWritePre * if &diff | colorscheme sol-term | endif
 
 
 " backup settings
