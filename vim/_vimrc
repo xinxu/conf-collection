@@ -13,6 +13,7 @@ set hidden
 set bs=2
 set shell=/usr/local/bin/zsh
 let mapleader = ','
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 
 " backup settings
@@ -36,15 +37,18 @@ set number
 if has("syntax")
   syntax on
 endif
-let g:molokai_original = 1
-colors molokai
+syntax enable
+"set background=dark
+"colorscheme solarized
+"let g:molokai_original = 1
+colorscheme molokai
 set clipboard+=unnamed
 
 "tab settings
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-au FileType go setl ts=4 sts=4
+set shiftwidth=2
+set softtabstop=2
+au FileType go setl ts=2 sts=2
 
 "encoding
 set encoding=utf-8
@@ -54,6 +58,8 @@ set fileencodings=utf-8,chinese,latin-1
 nmap <CR> o<ESC>
 nnoremap <silent> <Leader>bd :Bclose<CR>
 nmap <Leader>, <C-w>h
+nmap <Leader>w :lne<CR>
+nmap <Leader>q :lp<CR>
 
 "ctrlp
 let g:ctrlp_working_path_mode = 'ra'
@@ -65,7 +71,10 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "neocomplete
+set completeopt-=preview
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_ignore_case = 1
+"let g:neocomplete#enable_auto_close_preview = 1
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
@@ -106,6 +115,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>d <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
@@ -122,8 +132,5 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-"let g:go_fmt_command = \"goimports"
 let g:go_fmt_fail_silently = 1
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-"let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
