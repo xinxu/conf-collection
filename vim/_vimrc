@@ -88,6 +88,10 @@ endif
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+"auto-save
+let g:auto_save = 1
+let g:auto_save_silent = 1
+
 "NERDTree
 map <C-n> :NERDTreeToggle<CR>
 "autocmd StdinReadPre * let s:std_in=1
