@@ -54,9 +54,9 @@ set clipboard+=unnamed
 
 "tab settings
 set expandtab
-set shiftwidth=4
-set softtabstop=4
-au FileType go setl ts=4 sts=4
+set shiftwidth=2
+set softtabstop=2
+au FileType go setl ts=4 sts=4 sw=4
 
 "encoding
 set encoding=utf-8
@@ -87,10 +87,6 @@ endif
 "ctrlp
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-"auto-save
-let g:auto_save = 1
-let g:auto_save_silent = 1
 
 "NERDTree
 map <C-n> :NERDTreeToggle<CR>
