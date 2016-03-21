@@ -19,6 +19,9 @@ if &diff
     colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 
 " backup settings
@@ -51,9 +54,9 @@ set clipboard+=unnamed
 
 "tab settings
 set expandtab
-set shiftwidth=2
-set softtabstop=2
-au FileType go setl ts=2 sts=2
+set shiftwidth=4
+set softtabstop=4
+au FileType go setl ts=4 sts=4
 
 "encoding
 set encoding=utf-8
@@ -87,8 +90,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 "NERDTree
 map <C-n> :NERDTreeToggle<CR>
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "neocomplete
 set completeopt-=preview
