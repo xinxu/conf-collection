@@ -19,9 +19,9 @@ if &diff
     colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+
+" ag settings
+let g:ag_working_path_mode="r"
 
 
 " backup settings
