@@ -8,7 +8,7 @@
   "max_preserve_newlines": 0,
   "jslint_happy": false,
   "space_after_anon_function": false,
-  "brace_style": "collapse",
+  "brace_style": "collapse-preserve-inline",
   "keep_array_indentation": false,
   "keep_function_indentation": false,
   "space_before_conditional": true,
@@ -18,5 +18,6 @@
   "wrap_line_length": 0,
   "wrap_attributes": "auto",
   "wrap_attributes_indent_size": 2,
-  "end_with_newline": false
+  "end_with_newline": false,
+  "e4x": true
 }
