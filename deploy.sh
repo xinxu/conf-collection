@@ -9,6 +9,7 @@ rm -f ~/.vimrc
 rm -f ~/.htmlconf
 rm -f ~/.cssconf
 rm -f ~/.jsconf
+rm -f ~/.eslintrc
 
 ln -s "${PWD}/_bashprofile" ~/.bash_profile
 ln -s "${PWD}/_gitconfig" ~/.gitconfig
@@ -19,3 +20,4 @@ ln -s "${PWD}/vim/_vimrc" ~/.vimrc
 ln -s "${PWD}/vim/html.json" ~/.htmlconf
 ln -s "${PWD}/vim/css.json" ~/.cssconf
 ln -s "${PWD}/vim/js.json" ~/.jsconf
+ln -s "${PWD}/eslintrc.json" ~/.eslintrc
