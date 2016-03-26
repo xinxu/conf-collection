@@ -16,9 +16,15 @@ let mapleader = ','
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 set diffopt+=iwhite
 if &diff
-    colorscheme sol-term
+  colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
+
+au BufWritePre *.css :sil! call CSSBeautify()<cr>
+au BufWritePre *.json :sil! call JsonBeautify()<cr>
+au BufWritePre *.html :sil! call HtmlBeautify()<cr>
+au BufWritePre *.js :sil! call JsBeautify()<cr>
+au BufWritePre * :normal gg=G``
 
 " ag settings
 let g:ag_working_path_mode="r"
