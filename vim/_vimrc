@@ -19,10 +19,10 @@ if &diff
   colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
-au BufWritePre * :normal gg=G``
-au FileType css nmap <leader>f :!js-beautify --type css --config ~/.cssconf -f expand("%:p")<cr>
+au FileType css nmap <leader>f :%!js-beautify --type css --config ~/.cssconf -f<cr>
 au FileType javascript nmap <leader>f :%!js-beautify --config ~/.jsconf -f<cr>
 au FileType html nmap <leader>f :%!js-beautify --type html --config ~/.htmlconf -f<cr>
+au BufWritePre * :normal gg=G``
 
 " ag settings
 let g:ag_working_path_mode="r"
