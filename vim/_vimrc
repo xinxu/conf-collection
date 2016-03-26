@@ -19,12 +19,9 @@ if &diff
   colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
-
-au BufWritePre *.css :sil! call CSSBeautify()<cr>
-au BufWritePre *.json :sil! call JsonBeautify()<cr>
-au BufWritePre *.html :sil! call HtmlBeautify()<cr>
-au BufWritePre *.js :sil! call JsBeautify()<cr>
 au BufWritePre * :normal gg=G``
+au FileType css nmap <leader>f :%!js-beautify --type css --config ~/.cssconf -f<cr>
+"au FileType html nmap <leader>f :%!js-beautify --type html --config ~/.htmlconf -f<cr>
 
 " ag settings
 let g:ag_working_path_mode="r"
@@ -175,6 +172,7 @@ au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <leader>f <Plug>(go-fmt)
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
