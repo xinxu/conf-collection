@@ -14,19 +14,36 @@ set bs=2
 set shell=/usr/local/bin/zsh
 let mapleader = ','
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+fu! DoFormat()
+  if &ft=="css"
+    :normal mz
+    execute "%!js-beautify --type css --config ~/.cssconf -f"
+    :normal `z
+  elseif &ft=="html"
+    :normal mz
+    execute "%!js-beautify --type html --config ~/.htmlconf -f"
+    :normal `z
+  elseif &ft=~'javascript.*'
+    :normal mz
+    execute "%!js-beautify --type js --config ~/.jsconf -f"
+    :normal `z
+  else
+    :normal gg=G``
+  endif
+endfu
+
+au BufWritePre * :call DoFormat()
+
+" ag settings
+let g:ag_working_path_mode="r"
+
+" diff settings
 set diffopt+=iwhite
 if &diff
   colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
-au FileType css nmap <leader>f :%!js-beautify --type css --config ~/.cssconf -f<cr>
-au FileType javascript nmap <leader>f :%!js-beautify --config ~/.jsconf -f<cr>
-au FileType html nmap <leader>f :%!js-beautify --type html --config ~/.htmlconf -f<cr>
-au BufWritePre * :normal gg=G``
-
-" ag settings
-let g:ag_working_path_mode="r"
-
 
 " backup settings
 set nobackup
