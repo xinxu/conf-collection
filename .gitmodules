@@ -46,3 +46,6 @@
 [submodule "vim/bundle/vim-jsbeautify"]
 	path = vim/bundle/vim-jsbeautify
 	url = https://github.com/maksimr/vim-jsbeautify.git
+[submodule "Xcode-plugin/Swimat"]
+	path = Xcode-plugin/Swimat
+	url = https://github.com/Jintin/Swimat.git
