@@ -49,3 +49,6 @@
 [submodule "Xcode-plugin/Swimat"]
 	path = Xcode-plugin/Swimat
 	url = https://github.com/Jintin/Swimat.git
+[submodule "Xcode-plugin/XVim"]
+	path = Xcode-plugin/XVim
+	url = https://github.com/XVimProject/XVim.git
