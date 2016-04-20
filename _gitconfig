@@ -7,6 +7,7 @@
   email = xinxu0x@gmail.com
 [core]
   excludesfile = /Users/xinxu/.gitignore_global
+	compression = 1
 [alias]
   st = status
   ci = commit -m
