@@ -41,16 +41,17 @@ alias ec2='ssh -i ~/Dropbox/tassar/ec2_tokyo.pem ubuntu@52.193.37.44'
 alias vultr='ssh tassar@45.32.17.213 -t zsh'
 alias s='subl'
 alias o='open'
-alias v='CGO_ENABLED=0 mvim'
+# alias v='CGO_ENABLED=0 mvim'
+alias v='mvim'
 
 function start_tuproxy {
-  export http_proxy='cow.0.6180339.in:24971'
-  export HTTPS_PROXY='cow.0.6180339.in:24971'
+export http_proxy='cow.0.6180339.in:24971'
+export HTTPS_PROXY='cow.0.6180339.in:24971'
 }
 
 function stop_tuproxy {
-  export http_proxy=
-  export HTTPS_PROXY=
+export http_proxy=
+export HTTPS_PROXY=
 }
 
 eval "$(rbenv init -)"
