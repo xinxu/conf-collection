@@ -44,6 +44,7 @@ if &diff
   colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
+autocmd BufNewFile,BufWrite,BufRead Podfile setlocal filetype=podfile syntax=ruby
 
 " backup settings
 set nobackup
