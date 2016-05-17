@@ -3,11 +3,11 @@
 [push]
   default = simple
 [user]
-  name = Xin Xu
+  name = tassar
   email = xinxu0x@gmail.com
 [core]
   excludesfile = /Users/xinxu/.gitignore_global
-	compression = 1
+  compression = 1
 [alias]
   st = status
   ci = commit -m
@@ -15,6 +15,7 @@
   last = diff HEAD^ HEAD
   amend = commit --amend
   lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  up = '!git fetch && git rebase --autostash FETCH_HEAD'
   unstage = reset HEAD
 [filter "media"]
   required = true
@@ -27,12 +28,12 @@
 [difftool]
   prompt = false
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
