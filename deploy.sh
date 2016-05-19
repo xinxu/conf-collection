@@ -11,7 +11,6 @@ rm -f ~/.cssconf
 rm -f ~/.jsconf
 rm -f ~/.eslintrc
 rm -f ~/.tmux.conf
-rm -f ~/bin/killtmux.sh
 
 ln -s "${PWD}/_bashprofile" ~/.bash_profile
 ln -s "${PWD}/_gitconfig" ~/.gitconfig
@@ -24,4 +23,3 @@ ln -s "${PWD}/vim/css.json" ~/.cssconf
 ln -s "${PWD}/vim/js.json" ~/.jsconf
 ln -s "${PWD}/eslintrc.json" ~/.eslintrc
 ln -s "${PWD}/_tmux.conf" ~/.tmux.conf
-ln -s "${PWD}/killtmux.sh" ~/bin/killtmux.sh
