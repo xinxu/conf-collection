@@ -4,5 +4,5 @@
   "indent_size": 2,
   "newline_between_rules": false,
   "selector_separator": " ",
-  "selector_separator_newline": false
+  "selector_separator_newline": true
 }
