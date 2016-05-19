@@ -45,13 +45,13 @@ alias o='open'
 alias v='mvim'
 
 function start_tuproxy {
-export http_proxy='cow.0.6180339.in:24971'
-export HTTPS_PROXY='cow.0.6180339.in:24971'
+  export http_proxy='cow.0.6180339.in:24971'
+  export HTTPS_PROXY='cow.0.6180339.in:24971'
 }
 
 function stop_tuproxy {
-export http_proxy=
-export HTTPS_PROXY=
+  export http_proxy=
+  export HTTPS_PROXY=
 }
 
 eval "$(rbenv init -)"
