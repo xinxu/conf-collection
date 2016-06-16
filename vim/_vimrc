@@ -13,6 +13,7 @@ set hidden
 set bs=2
 " Enable CursorLine
 set cursorline
+set tag+=./tags;/
 
 " Default Colors for CursorLine
 highlight  CursorLine ctermbg=Yellow ctermfg=None
