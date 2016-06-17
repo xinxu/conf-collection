@@ -11,18 +11,12 @@ set autowrite
 set autoread
 set hidden
 set bs=2
-" Enable CursorLine
-set cursorline
 set tag+=./tags;/
 
-" Default Colors for CursorLine
-highlight  CursorLine ctermbg=Yellow ctermfg=None
-
-" Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine ctermbg=Green ctermfg=Red
-
-" Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine ctermbg=Yellow ctermfg=None
+" cursor settings
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 set shell=/usr/local/bin/zsh
 let mapleader = ','
@@ -77,10 +71,10 @@ set list
 set listchars=tab:>-,trail:-
 set guioptions=agt
 set number
+syntax enable
 if has("syntax")
   syntax on
 endif
-syntax enable
 "set background=dark
 "colorscheme solarized
 "let g:molokai_original = 1
