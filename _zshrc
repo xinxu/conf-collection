@@ -48,6 +48,7 @@ alias s='subl'
 alias o='open'
 # alias v='CGO_ENABLED=0 mvim'
 alias v='mvim'
+alias ks='tmux kill-session -t'
 
 function start_tuproxy {
   export http_proxy='cow.0.6180339.in:24971'
