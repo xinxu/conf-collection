@@ -9,14 +9,19 @@
   excludesfile = /Users/xinxu/.gitignore_global
   compression = 1
 [alias]
-  st = status
-  ci = commit -m
+  st = status -sb
+  cm = commit -m
   co = checkout
+  di = diff
+  rb = rebase
+  append = commit --amend
   last = diff HEAD^ HEAD
-  amend = commit --amend
   lol = log --pretty=oneline --abbrev-commit --graph --decorate
   up = '!git fetch && git rebase --autostash FETCH_HEAD'
-  unstage = reset HEAD
+  reset-stage = reset HEAD
+  reset-commit = reset --soft HEAD^
+  reset-clean = !git reset --hard && git clean -fd
+
 [filter "media"]
   required = true
   clean = git media clean %f
@@ -32,8 +37,8 @@
   smudge = git-lfs smudge %f
   required = true
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
