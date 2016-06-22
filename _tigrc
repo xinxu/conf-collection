@@ -1,1 +1,2 @@
 bind generic	+	!git commit --amend
+bind status	A !@git add -A
