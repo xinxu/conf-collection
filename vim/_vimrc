@@ -33,7 +33,7 @@ set guioptions=agt
 set number
 syntax enable
 if has("syntax")
-  syntax on
+	syntax on
 endif
 "set background=dark
 "colorscheme solarized
@@ -61,21 +61,21 @@ let mapleader = ','
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 fu! DoFormat()
-  if &ft=="css"
-    :normal mz
-    execute "%!js-beautify --type css --config ~/.cssconf -f"
-    :normal `z
-  elseif &ft=="html"
-    :normal mz
-    execute "%!js-beautify --type html --config ~/.htmlconf -f"
-    :normal `z
-  elseif &ft=~'javascript.*'
-    :normal mz
-    execute "%!js-beautify --type js --config ~/.jsconf -f"
-    :normal `z
-  else
-    :normal gg=G``
-  endif
+	if &ft=="css"
+		:normal mz
+		execute "silent %!js-beautify --type css --config ~/.cssconf -f"
+		:normal `z
+	elseif &ft=="html"
+		:normal mz
+		execute "silent %!js-beautify --type html --config ~/.htmlconf -f"
+		:normal `z
+	elseif &ft=~'javascript.*'
+		:normal mz
+		execute "silent %!js-beautify --type js --config ~/.jsconf -f"
+		:normal `z
+	else
+		:normal gg=G``
+	endif
 endfu
 
 au BufWritePre * :call DoFormat()
@@ -86,7 +86,7 @@ let g:ag_working_path_mode="r"
 " diff settings
 set diffopt+=iwhite
 if &diff
-  colorscheme sol-term
+	colorscheme sol-term
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
 autocmd BufNewFile,BufWrite,BufRead Podfile setlocal filetype=podfile syntax=ruby
@@ -97,21 +97,21 @@ nmap <CR> o<ESC>
 nnoremap <silent> <Leader>bd :Bclose<CR>
 nmap <Leader>, <C-w>h
 if has("gui_macvim")
-  function! MapBoth(keys, rhs)
-    execute 'nmap' a:keys a:rhs
-    execute 'imap' a:keys '<ESC>' . a:rhs
-  endfunction
-  " Switch to specific tab numbers with Command-number
-  call MapBoth('<D-1>', ':tabn 1 <CR>')
-  call MapBoth('<D-2>', ':tabn 2 <CR>')
-  call MapBoth('<D-3>', ':tabn 3 <CR>')
-  call MapBoth('<D-4>', ':tabn 4 <CR>')
-  call MapBoth('<D-5>', ':tabn 5 <CR>')
-  call MapBoth('<D-6>', ':tabn 6 <CR>')
-  call MapBoth('<D-7>', ':tabn 7 <CR>')
-  call MapBoth('<D-8>', ':tabn 8 <CR>')
-  call MapBoth('<D-9>', ':tabn 9 <CR>')
-  call MapBoth('<D-0>', ':tablast <CR>')
+	function! MapBoth(keys, rhs)
+		execute 'nmap' a:keys a:rhs
+		execute 'imap' a:keys '<ESC>' . a:rhs
+	endfunction
+	" Switch to specific tab numbers with Command-number
+	call MapBoth('<D-1>', ':tabn 1 <CR>')
+	call MapBoth('<D-2>', ':tabn 2 <CR>')
+	call MapBoth('<D-3>', ':tabn 3 <CR>')
+	call MapBoth('<D-4>', ':tabn 4 <CR>')
+	call MapBoth('<D-5>', ':tabn 5 <CR>')
+	call MapBoth('<D-6>', ':tabn 6 <CR>')
+	call MapBoth('<D-7>', ':tabn 7 <CR>')
+	call MapBoth('<D-8>', ':tabn 8 <CR>')
+	call MapBoth('<D-9>', ':tabn 9 <CR>')
+	call MapBoth('<D-0>', ':tablast <CR>')
 endif
 
 "ctrlp
@@ -130,9 +130,9 @@ let g:neocomplete#enable_at_startup = 1
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+	" For no inserting <CR> key.
+	"return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -147,7 +147,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
 " syntastic
@@ -166,19 +166,19 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 function! <SID>LocationPrevious()
-  try
-    lprev
-  catch /^Vim\%((\a\+)\)\=:E553/
-    llast
-  endtry
+	try
+		lprev
+	catch /^Vim\%((\a\+)\)\=:E553/
+		llast
+	endtry
 endfunction
 
 function! <SID>LocationNext()
-  try
-    lnext
-  catch /^Vim\%((\a\+)\)\=:E553/
-    lfirst
-  endtry
+	try
+		lnext
+	catch /^Vim\%((\a\+)\)\=:E553/
+		lfirst
+	endtry
 endfunction
 
 nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPrevious()'<CR>
