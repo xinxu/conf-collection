@@ -13,6 +13,43 @@ set hidden
 set bs=2
 set tag+=./tags;/
 
+" backup settings
+set nobackup
+set nowritebackup
+set noswapfile
+
+" indent settings
+set autoindent
+set cindent
+set smartindent
+
+" ui settings
+set cursorline
+set guifont=Source\ Code\ Pro:h14
+set showmatch
+set list
+set listchars=tab:>-,trail:-
+set guioptions=agt
+set number
+syntax enable
+if has("syntax")
+  syntax on
+endif
+"set background=dark
+"colorscheme solarized
+"let g:molokai_original = 1
+colorscheme molokai
+set clipboard+=unnamed
+
+"tab settings
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+au FileType go setl ts=8 sw=8
+
+"encoding
+set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
 
 " cursor settings
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -53,44 +90,6 @@ if &diff
 endif
 au FilterWritePre * if &diff | colorscheme sol-term | endif
 autocmd BufNewFile,BufWrite,BufRead Podfile setlocal filetype=podfile syntax=ruby
-
-" backup settings
-set nobackup
-set nowritebackup
-set noswapfile
-
-" indent settings
-set autoindent
-set cindent
-set smartindent
-
-" ui settings
-set cursorline
-set guifont=Source\ Code\ Pro:h14
-set showmatch
-set list
-set listchars=tab:>-,trail:-
-set guioptions=agt
-set number
-syntax enable
-if has("syntax")
-  syntax on
-endif
-"set background=dark
-"colorscheme solarized
-"let g:molokai_original = 1
-colorscheme molokai
-set clipboard+=unnamed
-
-"tab settings
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-au FileType go setl ts=8 sts=8 sw=8
-
-"encoding
-set encoding=utf-8
-set fileencodings=utf-8,chinese,latin-1
 
 "key mapping
 nmap <CR> o<ESC>
