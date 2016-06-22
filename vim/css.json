@@ -1,7 +1,7 @@
 {
 	"end_with_newline": false,
 	"indent_with_tabs": true,
-	"newline_between_rules": false,
+	"newline_between_rules": true,
 	"selector_separator": " ",
 	"selector_separator_newline": true
 }
