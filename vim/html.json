@@ -1,10 +1,9 @@
 {
-  "brace_style": "collapse",
-  "indent_size": 2,
-  "indent_char": " ",
-  "preserve_newlines": true,
-  "indent_inner_html": false,
-  "indent_scripts": "keep",
-  "unformatted": ["a", "span", "img", "code", "pre", "sub", "sup", "em", "strong", "b", "i", "u", "strike", "big", "small", "pre", "h1", "h2", "h3", "h4", "h5", "h6"],
-  "wrap_line_length": 0
+	"brace_style": "collapse",
+	"indent_with_tabs": true,
+	"preserve_newlines": true,
+	"indent_inner_html": false,
+	"indent_scripts": "keep",
+	"unformatted": ["a", "span", "img", "code", "pre", "sub", "sup", "em", "strong", "b", "i", "u", "strike", "big", "small", "pre", "h1", "h2", "h3", "h4", "h5", "h6"],
+	"wrap_line_length": 0
 }

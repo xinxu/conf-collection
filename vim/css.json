@@ -1,8 +1,7 @@
 {
-  "end_with_newline": false,
-  "indent_char": " ",
-  "indent_size": 2,
-  "newline_between_rules": false,
-  "selector_separator": " ",
-  "selector_separator_newline": true
+	"end_with_newline": false,
+	"indent_with_tabs": true,
+	"newline_between_rules": false,
+	"selector_separator": " ",
+	"selector_separator_newline": true
 }
