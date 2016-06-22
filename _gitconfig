@@ -3,10 +3,10 @@
 [push]
   default = simple
 [user]
-  name = tassar
-  email = xinxu0x@gmail.com
+	name = tassar
+	email = xinxu0x@gmail.com
 [core]
-  excludesfile = /Users/xinxu/.gitignore_global
+	excludesfile = /Users/tassar/.gitignore_global
   compression = 1
 [alias]
   st = status -sb
@@ -42,3 +42,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/tassar/.stCommitMsg
