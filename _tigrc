@@ -1,2 +1,6 @@
 bind generic	+	!git commit --amend
-bind status	A !@git add -A
+	bind status	1 !@git add -A
+	bind refs	1	!@git checkout -b %(prompt)
+	bind refs	2	!?@git branch -d %(branch)
+	bind refs	C	!@git checkout %(branch)
+bind refs	3	!git rebase -i %(branch)
