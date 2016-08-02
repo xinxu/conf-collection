@@ -52,13 +52,16 @@ set encoding=utf-8
 set fileencodings=utf-8,chinese,latin-1
 
 " cursor settings
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+if has('mac')
+	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+	let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
 
 set shell=/usr/local/bin/zsh
 let mapleader = ','
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+au BufNewFile,BufRead *zshrc set filetype=zsh
 
 fu! DoFormat()
 	if &ft=="css"
