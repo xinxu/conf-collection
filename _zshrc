@@ -14,7 +14,7 @@ export SHELL=$(which zsh)
 
 source $ZSH/oh-my-zsh.sh
 
-alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vv='/Applications/MacVim.app/Contents/MacOS/Vim'
 alias ow='mdfind "kMDItemFSName=*.xcworkspace" -onlyin . | xargs open'
 alias op='mdfind "kMDItemFSName=*.xcodeproj" -onlyin . | xargs open'
 alias oah='ssh root@116.251.219.113 -t zsh'
