@@ -10,6 +10,7 @@ plugins=(git osx autojump)
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/bin:$GOPATH/bin
+export SHELL=$(which zsh)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -22,5 +23,3 @@ alias o='open'
 alias v='mvim'
 alias ks='tmux kill-session -t'
 alias simu='open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
-
-eval "$(rbenv init -)"
