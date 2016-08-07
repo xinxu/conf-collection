@@ -58,3 +58,6 @@
 [submodule "vim/bundle/vim-zsh"]
 	path = vim/bundle/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
+[submodule "vim/bundle/vim-markdown-preview"]
+	path = vim/bundle/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
