@@ -1,41 +1,22 @@
-export PS1="\w \$ "
-# export PS1="\w \$(git-radar --bash --fetch) \$"
+#export PS1="\w \$ "
+export PS1="\w \$(git-radar --bash --fetch) \$"
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:/usr/local/sbin
 export ANDROID_HOME=/Users/tassar/Library/Android/sdk
 export ANDROID_SDK=/Users/tassar/Library/Android/sdk
+export http_proxy=socks5://127.0.0.1:1080
 
-# powerful ls
 alias ll='ls -lGFha'
-# grep
-alias gp='grep -nR'
-# open Xcode workspace
 alias ow='mdfind "kMDItemFSName=*.xcworkspace" -onlyin . | xargs open'
-# open Xcode project
 alias op='mdfind "kMDItemFSName=*.xcodeproj" -onlyin . | xargs open'
-# git flow
-alias gf='git flow'
-# finish git flow feature
-alias gff='git flow feature finish -rF'
-# finish git flow hotfix
-alias gfh='git flow hotfix finish -nF'
-# git commit with message
-alias gca='git commit -a -m'
-# git status
-alias gst='git status'
-# git clean
-alias gcl='git reset --hard && git clean -df'
-# source bash_profile
 alias sb='source ~/.bash_profile'
-# open bash_profile
-alias ob='mvim ~/.bash_profile'
-# same relatived
-alias build_offical='gradle assembleOfficalRelease'
-# same sigh
-alias same-sigh='sigh -a com.ohsame.same2.0 -u xinxu0x@gmail.com -b KQW6UNZE8J'
+alias oah='ssh root@116.251.219.113 -t zsh'
+alias s='subl'
+alias o='open'
+alias v='mvim'
+alias ks='tmux kill-session -t'
+alias simu='open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 . $(brew --prefix)/etc/bash_completion
 fi
-
-eval "$(rbenv init -)"

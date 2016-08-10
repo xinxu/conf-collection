@@ -64,26 +64,6 @@ let mapleader = ','
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 au BufNewFile,BufRead *zshrc set filetype=zsh
 
-fu! DoFormat()
-	if &ft=="css"
-		:normal mz
-		execute "silent %!js-beautify --type css --config ~/.cssconf -f"
-		:normal `z
-	elseif &ft=="html"
-		:normal mz
-		execute "silent %!js-beautify --type html --config ~/.htmlconf -f"
-		:normal `z
-	elseif &ft=~'javascript.*'
-		:normal mz
-		execute "silent %!js-beautify --type js --config ~/.jsconf -f"
-		:normal `z
-	else
-		:normal gg=G``
-	endif
-endfu
-
-au BufWritePre * :call DoFormat()
-
 " ag settings
 let g:ag_working_path_mode="r"
 
