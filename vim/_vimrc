@@ -1,9 +1,15 @@
+"--------------------------------------------------------------------------------
+" basic settings
+
+"" pathogen & runtimepath
 set nocompatible
 set rtp^=~/.vim
 set rtp^=~/.vim/bundle/vim-pathogen
 execute pathogen#infect()
 
-" basic settings
+"" common
+set shell=/usr/local/bin/zsh
+let mapleader = ','
 filetype plugin indent on
 set autochdir
 set wildmenu
@@ -12,72 +18,58 @@ set autoread
 set hidden
 set bs=2
 set tag+=./tags;/
+set clipboard+=unnamed
 
-" backup settings
+"" encoding
+set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
+
+"" backup
 set nobackup
 set nowritebackup
 set noswapfile
 
-" indent settings
+"" indent
 set autoindent
 set cindent
 set smartindent
 
-" ui settings
+"" gui
 set cursorline
 set guifont=Source\ Code\ Pro:h14
 set showmatch
 set list
-set listchars=tab:>-,trail:-
+set listchars=tab:>-,trail:-,eol:¬,extends:…,precedes:…
 set guioptions=agt
 set number
 syntax enable
 if has("syntax")
 	syntax on
 endif
-"set background=dark
-"colorscheme solarized
-"let g:molokai_original = 1
 colorscheme molokai
-set clipboard+=unnamed
 
-"tab settings
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
-au FileType go setl ts=8 sw=8
-au FileType markdown setl guifont=Menlo\ Regular:h14
-
-"encoding
-set encoding=utf-8
-set fileencodings=utf-8,chinese,latin-1
-
-" cursor settings
+"" cursor
 if has('mac')
 	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 	let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 endif
 
-set shell=/usr/local/bin/zsh
-let mapleader = ','
+"" tab
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
+
+"" filetype specific
+au FileType go setl ts=8 sw=8
+au FileType markdown setl guifont=Menlo\ Regular:h14
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 au BufNewFile,BufRead *zshrc set filetype=zsh
+au BufNewFile,BufWrite,BufRead Podfile setlocal filetype=podfile syntax=ruby
 
-" ag settings
-let g:ag_working_path_mode="r"
-
-" diff settings
-set diffopt+=iwhite
-if &diff
-	colorscheme sol-term
-endif
-au FilterWritePre * if &diff | colorscheme sol-term | endif
-autocmd BufNewFile,BufWrite,BufRead Podfile setlocal filetype=podfile syntax=ruby
-
-"key mapping
+"--------------------------------------------------------------------------------
+" key mappings
 nmap <CR> o<ESC>
-"nmap <Leader>. :SyntasticCheck<CR>
 nnoremap <silent> <Leader>bd :Bclose<CR>
 nmap <Leader>, <C-w>h
 if has("gui_macvim")
@@ -98,49 +90,51 @@ if has("gui_macvim")
 	call MapBoth('<D-0>', ':tablast <CR>')
 endif
 
-"ctrlp
+"--------------------------------------------------------------------------------
+" plugins settings
+
+"" ag
+if &rtp =~? 'ag'
+let g:ag_working_path_mode="r"
+endif
+
+"" ctrlp
+if &rtp =~? 'ctrlp'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+endif
 
-"NERDTree
+"" NERDTree
+if &rtp =~? 'nerdtree'
 map <C-n> :NERDTreeToggle<CR>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+endif
 
-"neocomplete
+"" neocomplete
+if &rtp =~? 'neocomplete'
 set completeopt-=preview
 let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#enable_auto_close_preview = 1
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-	" For no inserting <CR> key.
-	"return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
 	let g:neocomplete#sources#omni#input_patterns = {}
 endif
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+au FileType python setlocal omnifunc=pythoncomplete#Complete
+au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+endif
 
-" syntastic
+"" syntastic
+if &rtp =~? 'syntastic'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
-""let g:syntastic_auto_jump = 2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
@@ -148,8 +142,6 @@ let g:syntastic_filetype_map = { "javascript.jsx": "javascript" }
 let g:syntastic_javascript_checkers = ['eslint']
 nnoremap <silent> <F5> :SyntasticCheck<CR>
 let g:syntastic_mode_map = { 'mode': 'passive', 'passive_filetypes': [] }
-
-
 function! <SID>LocationPrevious()
 	try
 		lprev
@@ -157,7 +149,6 @@ function! <SID>LocationPrevious()
 		llast
 	endtry
 endfunction
-
 function! <SID>LocationNext()
 	try
 		lnext
@@ -165,14 +156,22 @@ function! <SID>LocationNext()
 		lfirst
 	endtry
 endfunction
-
 nnoremap <silent> <Plug>LocationPrevious    :<C-u>exe 'call <SID>LocationPrevious()'<CR>
 nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'<CR>
 nmap <silent> e[  <Plug>LocationPrevious
 nmap <silent> e]  <Plug>LocationNext
+endif
 
-"vim-go
-
+""vim-go
+if &rtp =~? 'vim-go'
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_fail_silently = 1
+let g:go_def_mode = 'godef'
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
@@ -188,25 +187,23 @@ au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>e <Plug>(go-rename)
 au FileType go nmap <leader>f <Plug>(go-fmt)
+endif
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_fail_silently = 1
-let g:go_def_mode = 'godef'
-
-"vim-markdown
+"" vim-markdown
+if &rtp =~? 'vim-markdown'
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_browser='Google Chrome'
 let vim_markdown_preview_github=1
+endif
 
-"vim-jsbeautify
+"" vim-jsbeautify
+if &rtp =~? 'vim-jsbeautify'
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+endif
+
+"--------------------------------------------------------------------------------
