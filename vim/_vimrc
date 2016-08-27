@@ -4,10 +4,8 @@
 "" pathogen & runtimepath
 set nocompatible
 set rtp^=~/.vim
-if &rtp =~? 'pathogen'
 set rtp^=~/.vim/bundle/vim-pathogen
 execute pathogen#infect()
-endif
 
 "" common
 set history=700
