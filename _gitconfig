@@ -3,7 +3,7 @@
 [push]
   default = simple
 [user]
-	name = tassar
+	name = Xin Xu
 	email = xinxu0x@gmail.com
 [core]
 	excludesfile = /Users/tassar/.gitignore_global
