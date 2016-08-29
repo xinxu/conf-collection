@@ -25,3 +25,5 @@ alias o='open'
 alias v='mvim'
 alias ks='tmux kill-session -t'
 alias simu='open -n /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
+
+eval "$(thefuck --alias well)"
