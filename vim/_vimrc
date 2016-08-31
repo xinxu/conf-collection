@@ -26,8 +26,6 @@ set tag+=./tags;/
 set clipboard+=unnamed
 set ignorecase
 set smartcase
-set hlsearch
-set incsearch
 set showmatch
 set lazyredraw
 set magic
