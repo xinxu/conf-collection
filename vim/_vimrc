@@ -51,7 +51,7 @@ set wrap
 
 "" gui
 set cursorline
-set guifont=Source\ Code\ Pro:h14
+set guifont=Source\ Code\ Pro:h12
 set list
 set listchars=tab:>-,trail:-,eol:¬,extends:…,precedes:…
 if has("gui_running")
