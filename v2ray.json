@@ -12,11 +12,6 @@
 			"ip": "127.0.0.1"
 		}
 	},
-	"inboundDetour": [{
-		"protocol": "http",
-		"port": 8081,
-		"settings": {}
-	}],
 	"outbound": {
 		"protocol": "vmess",
 		"settings": {
@@ -46,9 +41,9 @@
 	],
 	"dns": {
 		"servers": [
-			"localhost",
 			"8.8.8.8",
-			"8.8.4.4"
+			"8.8.4.4",
+			"localhost"
 		]
 	},
 	"routing": {
@@ -112,8 +107,8 @@
 		"kcpSettings": {
 			"uplinkCapacity": 30,
 			"downlinkCapacity": 100,
-			"readBufferSize":5,
-			"writeBufferSize":5
+			"readBufferSize":20,
+			"writeBufferSize":20
 		}
 	}
 }
