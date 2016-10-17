@@ -18,7 +18,7 @@ fi
 
 # oh-my-zsh
 ZSH_THEME="robbyrussell"
-plugins=(git osx z)
+plugins=(osx z)
 DISABLE_UPDATE_PROMPT=true
 source $ZSH/oh-my-zsh.sh
 
