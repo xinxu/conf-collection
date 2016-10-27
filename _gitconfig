@@ -1,48 +1,32 @@
 [color]
-  ui = true
+	ui = true
 [push]
-  default = simple
+	default = simple
 [user]
 	name = tassar
 	email = xinxu0x@gmail.com
 [core]
 	excludesfile = /Users/tassar/.gitignore_global
-  compression = 1
+	compression = 1
 [alias]
-  st = status -sb
-  cm = commit -m
-  co = checkout
-  di = diff
-  rb = rebase
-  append = commit --amend
-  last = diff HEAD^ HEAD
-  lol = log --pretty=oneline --abbrev-commit --graph --decorate
-  up = '!git fetch && git rebase --autostash FETCH_HEAD'
-  reset-stage = reset HEAD
-  reset-commit = reset --soft HEAD^
-  reset-clean = !git reset --hard && git clean -fd
+	st = status -sb
+	cm = commit -m
+	co = checkout
+	di = diff
+	rb = rebase
+	append = commit --amend
+	last = diff HEAD^ HEAD
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+	up = '!git fetch && git rebase --autostash FETCH_HEAD'
+	reset-clean = !git reset --hard && git clean -fd
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	ls = log --stat --pretty=short --graph
-
-[filter "media"]
-  required = true
-  clean = git media clean %f
-  smudge = git media smudge %f
 [diff]
-  tool = vimdiff
+	tool = opendiff
 [merge]
-  tool = vimdiff
+	tool = opendiff
 [difftool]
-  prompt = false
-[filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[commit]
-	template = /Users/tassar/.stCommitMsg
+	prompt = false
+[mergetool]
+	prompt = false
+	keepBackup = false
