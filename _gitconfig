@@ -21,6 +21,7 @@
 	reset-clean = !git reset --hard && git clean -fd
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	ls = log --stat --pretty=short --graph
+	pp = !git up && git push
 [diff]
 	tool = opendiff
 [merge]
@@ -30,3 +31,5 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[pull]
+	rebase = true
