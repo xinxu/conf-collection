@@ -16,7 +16,7 @@
 	rb = rebase
 	append = commit --amend
 	last = diff HEAD^ HEAD
-	lol = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
+	lol = log --no-merges --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
 	up = '!git fetch && git rebase --autostash FETCH_HEAD'
     pi = pull --rebase=interactive
 	reset-clean = !git reset --hard && git clean -fd
