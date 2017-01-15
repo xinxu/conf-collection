@@ -147,6 +147,7 @@ endif
 
 "" neocomplete
 if &rtp =~? 'neocomplete'
+let g:acp_enableAtStartup = 0
 set completeopt-=preview
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -164,6 +165,9 @@ au FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 au FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
 endif
 
 "" syntastic
