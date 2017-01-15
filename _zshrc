@@ -23,7 +23,7 @@ DISABLE_UPDATE_PROMPT=true
 source $ZSH/oh-my-zsh.sh
 
 # thefuck 
-eval "$(thefuck --alias well)"
+#eval "$(thefuck --alias well)"
 
 # alias
 alias ow='mdfind "kMDItemFSName=*.xcworkspace" -onlyin . | xargs open'
