@@ -17,13 +17,12 @@
 	append = commit --amend
 	last = diff HEAD^ HEAD
 	lol = log --no-merges --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
-    up = !git pull -r --autostash
     #up = '!git fetch && git rebase --autostash FETCH_HEAD'
     pi = pull --rebase=interactive
 	reset-clean = !git reset --hard && git clean -fd
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	ls = log --stat --pretty=short --graph
-	pp = !git up && git push
+	pp = !git pull -r --autostash && git push
 [diff]
 	tool = opendiff
 [merge]
