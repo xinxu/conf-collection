@@ -17,7 +17,7 @@
 	append = commit --amend
 	last = diff HEAD^ HEAD
 	lol = log --no-merges --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
-    up = pull -r --autostash
+    up = !git pull -r --autostash
     #up = '!git fetch && git rebase --autostash FETCH_HEAD'
     pi = pull --rebase=interactive
 	reset-clean = !git reset --hard && git clean -fd
