@@ -18,10 +18,11 @@
 	last = diff HEAD^ HEAD
 	lol = log --no-merges --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=local
     pi = pull --rebase=interactive
+    up = !git fetch && git rebase --autostash FETCH_HEAD
 	reset-clean = !git reset --hard && git clean -fd
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
 	ls = log --stat --pretty=short --graph
-	pp = !git pull && git push
+	pp = !git up && git push
 [diff]
 	tool = opendiff
 [merge]
