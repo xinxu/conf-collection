@@ -5,7 +5,7 @@ Description=Shadowsocks
 TimeoutStartSec=0
 Restart=always
 RestartSec=3
-ExecStart=$HOME/go/bin/shadowsocks-server -c $HOME/config/ss.json
+ExecStart=/root/go/bin/shadowsocks-server -c /etc/ss.json
 
 [Install]
 WantedBy=multi-user.target
