@@ -25,9 +25,6 @@
 [submodule "vim/bundle/vim-go"]
 	path = vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule "vim-colors-solarized"]
-	path = vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
@@ -58,9 +55,6 @@
 [submodule "vim/bundle/vim-zsh"]
 	path = vim/bundle/vim-zsh
 	url = https://github.com/chrisbra/vim-zsh.git
-[submodule "vim/bundle/vim-markdown-preview"]
-	path = vim/bundle/vim-markdown-preview
-	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
 [submodule "Xcode-plugin/KSImageNamed-Xcode"]
 	path = Xcode-plugin/KSImageNamed-Xcode
 	url = https://github.com/ksuther/KSImageNamed-Xcode.git
