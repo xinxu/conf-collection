@@ -28,6 +28,7 @@ prompt pure
 alias ow='mdfind "kMDItemFSName=*.xcworkspace" -onlyin . | xargs open'
 alias op='mdfind "kMDItemFSName=*.xcodeproj" -onlyin . | xargs open'
 alias oah='ssh root@116.251.219.113 -t zsh'
+alias linode='ssh root@139.162.103.35 -t zsh'
 alias s='subl'
 alias o='open'
 alias v='mvim'
