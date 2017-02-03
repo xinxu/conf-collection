@@ -1,0 +1,11 @@
+[Unit]
+Description=Shadowsocks
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+RestartSec=3
+ExecStart=/root/go/bin/shadowsocks-server -c /etc/ss.json
+
+[Install]
+WantedBy=multi-user.target
