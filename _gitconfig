@@ -16,7 +16,7 @@
 	rb = rebase
 	append = commit --amend
 	last = diff HEAD^ HEAD
-	lol = log --no-merges --pretty=format:'%C(yellow)%h %Cred(%cr) %Cblue<%an>%Cgreen%d %Creset%s' --date=local
+    lol = log --no-merges --decorate=full --pretty=format:'%C(yellow)%h %Cred(%cr) %Cblue<%an> %Creset%s%Cgreen%d' --date=local
     pi = pull --rebase=interactive
 	reset-clean = !git reset --hard && git clean -fd
 	dsf = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
