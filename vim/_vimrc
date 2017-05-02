@@ -85,7 +85,7 @@ set shiftwidth=4
 
 "" filetype specific
 au FileType go setl ts=8 sw=8
-au FileType markdown setl guifont=Menlo\ Regular:h14
+"au FileType markdown setl guifont=Menlo\ Regular:h14
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 au BufNewFile,BufRead *zshrc set filetype=zsh
 au BufNewFile,BufWrite,BufRead Podfile setlocal filetype=podfile syntax=ruby
