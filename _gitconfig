@@ -10,9 +10,10 @@
 	compression = 1
 [alias]
 	st = status -sb
-	cm = commit
+    cm = commit -m
 	co = checkout
 	di = diff
+    cp = cherry-pick
 	rb = rebase
 	append = commit --amend
 	last = diff HEAD^ HEAD
