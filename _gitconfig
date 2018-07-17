@@ -8,6 +8,7 @@
 [core]
 	excludesfile = /Users/tassar/.gitignore_global
 	compression = 1
+	editor = vim
 [alias]
 	st = status -sb
     cm = commit -m

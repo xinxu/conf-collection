@@ -9,6 +9,13 @@ export GOPATH=$HOME/go
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH=$PATH:/usr/local/sbin:$HOME/bin:/usr/local/go/bin:/usr/local/opt/go/libexec/bin:$ANDROID_HOME/tools:$GOPATH/bin
+export DJANGO_DEVELOPMENT=true
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+#ssh-add ~/.ssh/id_rsa_gy
+#ssh-add ~/.ssh/id_rsa_gy_crm
+#ssh-add ~/.ssh/id_rsa_gy_web
+#ssh-add ~/.ssh/id_rsa_ta
 
 # appearance
 if [ "$TERM" = "xterm"  ]; then
@@ -38,7 +45,6 @@ alias simu='open -n /Applications/Xcode.app/Contents/Developer/Applications/Simu
 alias mp='man-preview'
 alias gt='gittower .'
 alias task='launchctl'
-alias goproxy='export http_proxy=http://127.0.0.1:1087 https_proxy=http://127.0.0.1:1087'
-alias disproxy='unset http_proxy https_proxy'
 alias brewup='brew update && brew upgrade && brew cleanup; brew doctor'
-alias bella='open smb://10.177.236.1'
+alias fiddler='mono --arch=32 ~/fiddler-mac/Fiddler.exe'
+alias p3='python3'
